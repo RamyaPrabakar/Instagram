@@ -1,5 +1,5 @@
 //
-//  HomeFeedViewController.h
+//  ComposeViewController.h
 //  Instagram
 //
 //  Created by Ramya Prabakar on 6/27/22.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HomeFeedViewController : UIViewController
+@interface ComposeViewController : UIViewController
 
 @end
 

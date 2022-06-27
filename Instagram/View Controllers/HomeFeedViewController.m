@@ -19,6 +19,10 @@
 }
 
 - (IBAction)logout:(id)sender {
+    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
+        // PFUser.current() will now be nil
+    }];
+    
     [self dismissViewControllerAnimated:true completion:nil];
 }
 

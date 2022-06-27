@@ -17,15 +17,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     ParseClientConfiguration *config = [ParseClientConfiguration  configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
-
-        configuration.applicationId = @"JA9mTiceIdbPfp8pj3An5CoInM8Vii2cJc1wvL5c";
-        configuration.clientKey = @"vrfeg5cm1mGnuAyBh5IN8SZdAw7v4bqflKC4TFeL";
+        
+        NSString *path = [[NSBundle mainBundle] pathForResource: @"Keys" ofType: @"plist"];
+        NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: path];
+        NSString *applicationId = [dict objectForKey: @"applicationId"];
+        NSString *clientKey = [dict objectForKey: @"clientKey"];
+        
+        configuration.applicationId = applicationId;
+        configuration.clientKey = clientKey;
         configuration.server = @"https://parseapi.back4app.com";
     }];
 
     [Parse initializeWithConfiguration:config];
     
-    PFObject *gameScore = [PFObject objectWithClassName:@"GameScore"];
+    /* PFObject *gameScore = [PFObject objectWithClassName:@"GameScore"];
     gameScore[@"score"] = @1337;
     gameScore[@"playerName"] = @"Sean Plott";
     gameScore[@"cheatMode"] = @NO;
@@ -35,7 +40,7 @@
         } else {
             NSLog(@"Error: %@", error.description);
         }
-    }];
+    }]; */
     
     return YES;
 }
