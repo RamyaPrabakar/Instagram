@@ -113,7 +113,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home Feed" id="ZJm-8n-jCM">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="8gP-Nl-oAU"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="8gP-Nl-oAU">
+                            <connections>
+                                <action selector="logout:" destination="TyT-aI-f5k" id="fJM-R0-TFZ"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="insta_camera_btn" id="9aU-TE-7GP"/>
                     </navigationItem>
                 </viewController>
