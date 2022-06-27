@@ -11,7 +11,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -65,7 +65,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="504" y="-632"/>
+            <point key="canvasLocation" x="1348" y="-632"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ieo-1I-IwJ">
@@ -83,7 +83,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TpD-IW-8KJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1507" y="-632"/>
+            <point key="canvasLocation" x="2386" y="-632"/>
         </scene>
         <!--Home Feed-->
         <scene sceneID="s2q-aO-pEn">
@@ -133,7 +133,7 @@
                     <navigationItem key="navigationItem" title="Home Feed" id="ZJm-8n-jCM">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="8gP-Nl-oAU">
                             <connections>
-                                <action selector="logout:" destination="TyT-aI-f5k" id="fJM-R0-TFZ"/>
+                                <action selector="logout:" destination="TyT-aI-f5k" id="jsU-I0-Pn3"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="insta_camera_btn" id="9aU-TE-7GP">
@@ -159,12 +159,14 @@
                                 <rect key="frame" x="20" y="83" width="221" height="184"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a caption..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lsC-Ol-43V">
-                                <rect key="frame" x="249" y="83" width="145" height="34"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Write a caption..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gk2-Wz-8rb">
+                                <rect key="frame" x="249" y="83" width="156" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4iE-BY-9gb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -184,7 +186,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gRT-cA-eK9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2700" y="195"/>
+            <point key="canvasLocation" x="2698.5507246376815" y="194.86607142857142"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Ia9-b3-iNC">
@@ -200,7 +202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="50O-mk-epl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4712" y="195"/>
+            <point key="canvasLocation" x="4542" y="195"/>
         </scene>
         <!--Feed-->
         <scene sceneID="nL3-oZ-QeM">
@@ -256,13 +258,16 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8PP-m7-u7Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3807" y="195"/>
+            <point key="canvasLocation" x="3675" y="195"/>
         </scene>
     </scenes>
     <resources>
         <image name="feed_tab" width="25" height="25"/>
         <image name="insta_camera_btn" width="25" height="25"/>
         <image name="profile_tab" width="25" height="25"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
