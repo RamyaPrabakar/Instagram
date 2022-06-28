@@ -6,6 +6,7 @@
 //
 
 #import "ComposeViewController.h"
+#import "Post.h"
 
 @interface ComposeViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *postingImage;
@@ -25,6 +26,13 @@
 }
 
 - (IBAction)share:(id)sender {
+    [Post postUserImage:self.postingImage.image withCaption:self.caption.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            NSLog(@"😎😎😎 Successfully made a post");
+        } else {
+            NSLog(@"😫😫😫 Error making a post: %@", error.localizedDescription);
+        }
+    }];
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
@@ -57,6 +65,25 @@
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    if ([self.caption.text isEqualToString:@"Write a caption..."]) {
+        self.caption.text = @"";
+    }
+}
+
+/* - (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
+    UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
+    resizeImageView.image = image;
+    
+    UIGraphicsBeginImageContext(size);
+    [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+} */
 
 /*
 #pragma mark - Navigation
