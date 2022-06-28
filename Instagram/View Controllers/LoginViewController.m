@@ -74,6 +74,7 @@
             [self performSegueWithIdentifier:@"loginSegue" sender:nil];
         }
     }];
+    
 }
 
 - (IBAction)loginUser:(id)sender {
