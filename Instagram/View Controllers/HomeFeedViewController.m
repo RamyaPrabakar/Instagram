@@ -6,6 +6,8 @@
 //
 
 #import "HomeFeedViewController.h"
+#import "LoginViewController.h"
+#import "SceneDelegate.h"
 
 @interface HomeFeedViewController ()
 
@@ -23,7 +25,11 @@
         // PFUser.current() will now be nil
     }];
     
-    [self dismissViewControllerAnimated:true completion:nil];
+    SceneDelegate *sceneDelegate = (SceneDelegate *)UIApplication.sharedApplication.connectedScenes.allObjects.firstObject.delegate;
+
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    sceneDelegate.window.rootViewController = loginViewController;
 }
 
 /*
