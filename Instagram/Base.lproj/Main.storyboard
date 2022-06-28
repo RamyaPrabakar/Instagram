@@ -130,8 +130,8 @@
                                                         <constraint firstAttribute="width" constant="414" id="uSg-yk-1YP"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a sample caption :)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMT-sp-06T">
-                                                    <rect key="frame" x="8" y="330" width="398" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a sample caption :)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMT-sp-06T">
+                                                    <rect key="frame" x="8" y="330.5" width="398" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -150,6 +150,7 @@
                                         <connections>
                                             <outlet property="postCaption" destination="EMT-sp-06T" id="vju-gO-gLo"/>
                                             <outlet property="postImage" destination="LFl-8t-Ha3" id="ho1-ag-4u8"/>
+                                            <segue destination="quk-nN-b1d" kind="show" identifier="detailsSegue" id="dOE-Cu-ewQ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -172,7 +173,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="insta_camera_btn" id="9aU-TE-7GP">
                             <connections>
-                                <segue destination="2J7-Ha-ICh" kind="presentation" id="2tX-0T-hg6"/>
+                                <segue destination="2J7-Ha-ICh" kind="presentation" identifier="composeSegue" id="2tX-0T-hg6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -183,6 +184,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lph-Xt-iDb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1088" y="195"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="WKB-HO-waA">
+            <objects>
+                <viewController id="quk-nN-b1d" customClass="DetailsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eZj-3W-xAK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bno-LO-Fds" customClass="PFImageView">
+                                <rect key="frame" x="0.0" y="56" width="414" height="288"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="414" id="0x0-rM-zeg"/>
+                                    <constraint firstAttribute="height" constant="288" id="RbN-Xj-xVV"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="This is the next sample caption!!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3E-wx-6Kq">
+                                <rect key="frame" x="8" y="354" width="328" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timestamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dX-nZ-Kc1">
+                                <rect key="frame" x="346" y="352" width="58" height="15"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Aee-YQ-Qz5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="X3E-wx-6Kq" firstAttribute="leading" secondItem="Aee-YQ-Qz5" secondAttribute="leading" constant="8" id="0kR-H2-aog"/>
+                            <constraint firstItem="6dX-nZ-Kc1" firstAttribute="leading" secondItem="X3E-wx-6Kq" secondAttribute="trailing" constant="10" id="98t-3X-ngd"/>
+                            <constraint firstItem="X3E-wx-6Kq" firstAttribute="top" secondItem="bno-LO-Fds" secondAttribute="bottom" constant="10" id="IXB-aA-oda"/>
+                            <constraint firstItem="bno-LO-Fds" firstAttribute="top" secondItem="Aee-YQ-Qz5" secondAttribute="top" id="Ove-5v-tM1"/>
+                            <constraint firstItem="6dX-nZ-Kc1" firstAttribute="top" secondItem="bno-LO-Fds" secondAttribute="bottom" constant="8" id="QCv-pO-acM"/>
+                            <constraint firstItem="Aee-YQ-Qz5" firstAttribute="trailing" secondItem="6dX-nZ-Kc1" secondAttribute="trailing" constant="10" id="Qe1-BL-1QN"/>
+                            <constraint firstItem="bno-LO-Fds" firstAttribute="leading" secondItem="Aee-YQ-Qz5" secondAttribute="leading" id="aU2-rO-LYY"/>
+                            <constraint firstItem="bno-LO-Fds" firstAttribute="trailing" secondItem="Aee-YQ-Qz5" secondAttribute="trailing" id="hWH-WU-smj"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="oZZ-Wz-CLu"/>
+                    <connections>
+                        <outlet property="bigPostImage" destination="bno-LO-Fds" id="gxX-J8-fHP"/>
+                        <outlet property="captionDetailsView" destination="X3E-wx-6Kq" id="RB3-9z-oi8"/>
+                        <outlet property="timestamp" destination="6dX-nZ-Kc1" id="yfS-Zm-Clj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h55-eN-vMT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1086.9565217391305" y="953.57142857142856"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="6m9-Z0-mhw">

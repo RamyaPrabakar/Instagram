@@ -12,6 +12,7 @@
 #import "Post.h"
 #import "PFImageView.h"
 #import <Parse/Parse.h>
+#import "DetailsViewController.h"
 
 @interface HomeFeedViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -71,11 +72,23 @@
     
     cell.postImage.file = currPost[@"image"];
     [cell.postImage loadInBackground];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.arrayOfPosts.count;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    
+    if ([[segue identifier] isEqualToString:@"detailsSegue"]) {
+        Post *postToPass = self.arrayOfPosts[[self.tableView indexPathForCell:sender].row];
+        DetailsViewController *detailVC = [segue destinationViewController];
+        detailVC.passedPost = postToPass;
+    }
 }
 
 /*
