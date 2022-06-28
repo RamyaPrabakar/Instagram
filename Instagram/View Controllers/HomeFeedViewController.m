@@ -16,7 +16,7 @@
 @interface HomeFeedViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *arrayOfPosts;
-
+@property (nonatomic, strong) UIRefreshControl* refreshControl;
 @end
 
 @implementation HomeFeedViewController
@@ -28,6 +28,9 @@
     self.tableView.delegate = self;
     
     [self getTimeline];
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(getTimeline) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
 }
 
 - (IBAction)logout:(id)sender {
@@ -46,6 +49,7 @@
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     query.limit = 20;
+    [query orderByDescending:@"createdAt"];
 
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
@@ -56,6 +60,7 @@
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
+        [self.refreshControl endRefreshing];
     }];
 }
 

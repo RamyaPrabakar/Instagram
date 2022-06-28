@@ -56,6 +56,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="mGA-iU-o2x" firstAttribute="top" secondItem="wmu-0v-mgF" secondAttribute="bottom" constant="50" id="CXl-ah-Hfq"/>
                             <constraint firstItem="ft7-Zr-92A" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="DVf-6q-7bf"/>
@@ -66,6 +67,9 @@
                             <constraint firstItem="Z35-8n-lOK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="sBV-WH-P7M"/>
                             <constraint firstItem="wmu-0v-mgF" firstAttribute="leading" secondItem="ft7-Zr-92A" secondAttribute="leading" id="uX0-DC-N32"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="pUR-Bw-sgR" appends="YES" id="BFR-dH-p11"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="password" destination="wmu-0v-mgF" id="mU4-yi-HPR"/>
@@ -74,6 +78,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="pUR-Bw-sgR">
+                    <connections>
+                        <action selector="onTap:" destination="BYZ-38-t0r" id="vHw-Wo-2Vz"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1346.376811594203" y="-632.14285714285711"/>
         </scene>
@@ -98,7 +107,7 @@
         <!--Home Feed-->
         <scene sceneID="s2q-aO-pEn">
             <objects>
-                <viewController storyboardIdentifier="HomeFeedViewController" id="TyT-aI-f5k" customClass="HomeFeedViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeFeedViewController" modalPresentationStyle="fullScreen" id="TyT-aI-f5k" customClass="HomeFeedViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MxA-gu-hdW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -190,12 +199,9 @@
                                     <constraint firstAttribute="width" constant="205" id="QIK-Mo-u4u"/>
                                     <constraint firstAttribute="height" constant="295" id="myo-c3-EjU"/>
                                 </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="ZMg-4C-8k3" appends="YES" id="V8O-XB-hjv"/>
-                                </connections>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Write a caption..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gk2-Wz-8rb">
-                                <rect key="frame" x="233" y="131" width="119.5" height="33"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" text="Write a caption..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gk2-Wz-8rb">
+                                <rect key="frame" x="233" y="131" width="171" height="201"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <gestureRecognizers/>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -205,14 +211,36 @@
                                     <outlet property="delegate" destination="JKa-yn-eNf" id="soJ-DF-EWT"/>
                                 </connections>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJ1-Qi-ieN">
+                                <rect key="frame" x="20" y="383" width="108" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Select Image"/>
+                                <connections>
+                                    <action selector="selectImage:" destination="JKa-yn-eNf" eventType="touchUpInside" id="iVL-Ck-0Tq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRn-fu-g1O">
+                                <rect key="frame" x="20" y="422" width="115" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Take a picture"/>
+                                <connections>
+                                    <action selector="takeAPicture:" destination="JKa-yn-eNf" eventType="touchUpInside" id="8aD-XJ-PMi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4iE-BY-9gb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="gk2-Wz-8rb" firstAttribute="top" secondItem="d0Z-V4-wJY" secondAttribute="top" constant="45" id="1Ku-gq-zlC"/>
                             <constraint firstItem="d0Z-V4-wJY" firstAttribute="top" secondItem="4iE-BY-9gb" secondAttribute="top" constant="30" id="2d2-5X-zl3"/>
+                            <constraint firstItem="SRn-fu-g1O" firstAttribute="leading" secondItem="xJ1-Qi-ieN" secondAttribute="leading" id="3aw-ax-rNL"/>
+                            <constraint firstItem="gk2-Wz-8rb" firstAttribute="leading" secondItem="d0Z-V4-wJY" secondAttribute="trailing" constant="8" id="EAT-MV-1Da"/>
+                            <constraint firstItem="4iE-BY-9gb" firstAttribute="trailing" secondItem="gk2-Wz-8rb" secondAttribute="trailing" constant="10" id="Jhu-Ig-oHc"/>
+                            <constraint firstItem="xJ1-Qi-ieN" firstAttribute="leading" secondItem="d0Z-V4-wJY" secondAttribute="leading" id="OY2-eG-b8j"/>
                             <constraint firstItem="d0Z-V4-wJY" firstAttribute="leading" secondItem="4iE-BY-9gb" secondAttribute="leading" constant="20" id="OeL-m5-eda"/>
+                            <constraint firstItem="xJ1-Qi-ieN" firstAttribute="top" secondItem="d0Z-V4-wJY" secondAttribute="bottom" constant="2" id="Qej-o7-Yan"/>
                             <constraint firstItem="gk2-Wz-8rb" firstAttribute="leading" secondItem="d0Z-V4-wJY" secondAttribute="trailing" constant="8" id="U5Y-38-dEv"/>
+                            <constraint firstItem="SRn-fu-g1O" firstAttribute="top" secondItem="xJ1-Qi-ieN" secondAttribute="bottom" constant="8" id="d2a-4Z-HJe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Efa-vl-XDV">
@@ -233,11 +261,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gRT-cA-eK9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="ZMg-4C-8k3">
-                    <connections>
-                        <action selector="didTap:" destination="JKa-yn-eNf" id="am9-mc-cwX"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2698.5507246376815" y="194.86607142857142"/>
         </scene>
@@ -260,7 +283,7 @@
         <!--Feed-->
         <scene sceneID="nL3-oZ-QeM">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d6s-03-5qa" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="d6s-03-5qa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Feed" image="feed_tab" id="TDM-uc-uh6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="X1K-0C-75r">
