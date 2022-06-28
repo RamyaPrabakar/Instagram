@@ -73,6 +73,21 @@
     cell.postImage.file = currPost[@"image"];
     [cell.postImage loadInBackground];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    NSDate *createdAt = currPost.createdAt;
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    
+    // Configure the input format to parse the date string
+    formatter.dateFormat = @"E MMM d HH:mm:ss Z y";
+    
+    // Configure output format
+    formatter.dateStyle = NSDateFormatterShortStyle;
+    formatter.timeStyle = NSDateFormatterNoStyle;
+    
+    // Convert Date to String
+    cell.timestamp.text = [formatter stringFromDate:createdAt];
+    
     return cell;
 }
 

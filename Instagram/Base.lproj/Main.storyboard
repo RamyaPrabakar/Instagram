@@ -131,8 +131,14 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a sample caption :)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMT-sp-06T">
-                                                    <rect key="frame" x="8" y="330.5" width="398" height="20.5"/>
+                                                    <rect key="frame" x="8" y="323" width="197.5" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timestamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LiG-jO-087">
+                                                    <rect key="frame" x="326" y="323" width="60" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -140,16 +146,19 @@
                                             <constraints>
                                                 <constraint firstItem="EMT-sp-06T" firstAttribute="bottom" secondItem="1sr-Go-cmf" secondAttribute="bottomMargin" constant="1" id="60P-4j-bYy"/>
                                                 <constraint firstAttribute="trailing" secondItem="LFl-8t-Ha3" secondAttribute="trailing" id="Asb-0O-3iy"/>
-                                                <constraint firstAttribute="trailing" secondItem="EMT-sp-06T" secondAttribute="trailing" constant="8" id="N8X-Wg-ZIB"/>
+                                                <constraint firstItem="LiG-jO-087" firstAttribute="top" secondItem="LFl-8t-Ha3" secondAttribute="bottom" constant="1" id="B2Y-JG-cNV"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="LiG-jO-087" secondAttribute="trailing" constant="8" id="Ia1-Ou-Ml4"/>
+                                                <constraint firstItem="LiG-jO-087" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EMT-sp-06T" secondAttribute="trailing" constant="1" id="XQ2-Ph-nEb"/>
                                                 <constraint firstItem="LFl-8t-Ha3" firstAttribute="top" secondItem="1sr-Go-cmf" secondAttribute="top" constant="8" id="hkg-ct-Dqg"/>
                                                 <constraint firstItem="EMT-sp-06T" firstAttribute="leading" secondItem="1sr-Go-cmf" secondAttribute="leading" constant="8" id="mNh-TG-fZX"/>
                                                 <constraint firstItem="LFl-8t-Ha3" firstAttribute="leading" secondItem="1sr-Go-cmf" secondAttribute="leading" id="meg-Vd-Xls"/>
-                                                <constraint firstItem="EMT-sp-06T" firstAttribute="top" relation="greaterThanOrEqual" secondItem="LFl-8t-Ha3" secondAttribute="bottom" constant="1" id="xhZ-c1-r8f"/>
+                                                <constraint firstItem="EMT-sp-06T" firstAttribute="top" secondItem="LFl-8t-Ha3" secondAttribute="bottom" constant="1" id="xhZ-c1-r8f"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="postCaption" destination="EMT-sp-06T" id="vju-gO-gLo"/>
                                             <outlet property="postImage" destination="LFl-8t-Ha3" id="ho1-ag-4u8"/>
+                                            <outlet property="timestamp" destination="LiG-jO-087" id="JiR-hO-fG5"/>
                                             <segue destination="quk-nN-b1d" kind="show" identifier="detailsSegue" id="dOE-Cu-ewQ"/>
                                         </connections>
                                     </tableViewCell>
@@ -183,7 +192,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lph-Xt-iDb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1088" y="195"/>
+            <point key="canvasLocation" x="1086.9565217391305" y="194.86607142857142"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="WKB-HO-waA">
