@@ -8,8 +8,14 @@
 #import "HomeFeedViewController.h"
 #import "LoginViewController.h"
 #import "SceneDelegate.h"
+#import "PostCell.h"
+#import "Post.h"
+#import "PFImageView.h"
+#import <Parse/Parse.h>
 
-@interface HomeFeedViewController ()
+@interface HomeFeedViewController () <UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSArray *arrayOfPosts;
 
 @end
 
@@ -18,6 +24,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    
+    [self getTimeline];
 }
 
 - (IBAction)logout:(id)sender {
@@ -30,6 +40,37 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
     sceneDelegate.window.rootViewController = loginViewController;
+}
+
+-(void) getTimeline {
+    // construct query
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    query.limit = 20;
+
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            // do something with the array of object returned by the call
+            self.arrayOfPosts = posts;
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
+    Post *currPost = self.arrayOfPosts[indexPath.row];
+    cell.postCaption.text = currPost.caption;
+    
+    cell.postImage.file = currPost[@"image"];
+    [cell.postImage loadInBackground];
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.arrayOfPosts.count;
 }
 
 /*
