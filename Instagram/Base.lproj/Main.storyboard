@@ -137,7 +137,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timestamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LiG-jO-087">
-                                                    <rect key="frame" x="326" y="323" width="60" height="14.5"/>
+                                                    <rect key="frame" x="346" y="323" width="60" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -147,8 +147,8 @@
                                                 <constraint firstItem="EMT-sp-06T" firstAttribute="bottom" secondItem="1sr-Go-cmf" secondAttribute="bottomMargin" constant="1" id="60P-4j-bYy"/>
                                                 <constraint firstAttribute="trailing" secondItem="LFl-8t-Ha3" secondAttribute="trailing" id="Asb-0O-3iy"/>
                                                 <constraint firstItem="LiG-jO-087" firstAttribute="top" secondItem="LFl-8t-Ha3" secondAttribute="bottom" constant="1" id="B2Y-JG-cNV"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="LiG-jO-087" secondAttribute="trailing" constant="8" id="Ia1-Ou-Ml4"/>
-                                                <constraint firstItem="LiG-jO-087" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EMT-sp-06T" secondAttribute="trailing" constant="1" id="XQ2-Ph-nEb"/>
+                                                <constraint firstAttribute="trailing" secondItem="LiG-jO-087" secondAttribute="trailing" constant="8" id="OmX-ts-BuP"/>
+                                                <constraint firstItem="LiG-jO-087" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EMT-sp-06T" secondAttribute="trailing" constant="2" id="XQ2-Ph-nEb"/>
                                                 <constraint firstItem="LFl-8t-Ha3" firstAttribute="top" secondItem="1sr-Go-cmf" secondAttribute="top" constant="8" id="hkg-ct-Dqg"/>
                                                 <constraint firstItem="EMT-sp-06T" firstAttribute="leading" secondItem="1sr-Go-cmf" secondAttribute="leading" constant="8" id="mNh-TG-fZX"/>
                                                 <constraint firstItem="LFl-8t-Ha3" firstAttribute="leading" secondItem="1sr-Go-cmf" secondAttribute="leading" id="meg-Vd-Xls"/>
