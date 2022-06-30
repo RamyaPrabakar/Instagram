@@ -26,7 +26,11 @@
     
     PFUser *currUser = [PFUser currentUser];
     self.username.text = currUser[@"username"];
-    // self.profilePicture.image = currUser[@"profilePicture"];
+    self.profilePicture.file = currUser[@"profilePicture"];
+    [self.profilePicture loadInBackground];
+    
+    self.profilePicture.layer.cornerRadius = 50;
+    self.profilePicture.layer.masksToBounds = YES;
     
     self.tableView.dataSource = self;
     // self.tableView.delegate = self;

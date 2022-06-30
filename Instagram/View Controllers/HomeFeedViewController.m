@@ -71,6 +71,13 @@
     Post *currPost = self.arrayOfPosts[indexPath.row];
     cell.postCaption.text = currPost.caption;
     
+    PFUser *userOfPost = currPost.author;
+    cell.profileImage.file = userOfPost[@"profilePicture"];
+    [cell.profileImage loadInBackground];
+    
+    cell.profileImage.layer.cornerRadius = 25;
+    cell.profileImage.layer.masksToBounds = YES;
+    
     cell.postImage.file = currPost[@"image"];
     [cell.postImage loadInBackground];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
