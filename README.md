@@ -53,6 +53,10 @@ User Persistence:
 
 <img src='UserPersistance_AdobeExpress.gif' title='Video Walkthrough' width='800' height='600' alt='Video Walkthrough'/>
 
+Stretch Features:
+
+<img src='StretchFeatures_AdobeExpress.gif' title='Video Walkthrough' width='400' height='800' alt='Video Walkthrough'/>
+
 ## Credits
 
 List an 3rd party libraries, icons, graphics, or other assets you used in your app.
