@@ -49,6 +49,9 @@ Here's a walkthrough of implemented user stories:
 
 <img src='RequiredFeaturesFinal_AdobeExpress.gif' title='Video Walkthrough' width='400' height='800' alt='Video Walkthrough' />
 
+User Persistence:
+
+
 ## Credits
 
 List an 3rd party libraries, icons, graphics, or other assets you used in your app.
