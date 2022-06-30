@@ -123,35 +123,44 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="361"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LFl-8t-Ha3" customClass="PFImageView">
-                                                    <rect key="frame" x="0.0" y="8" width="414" height="314"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="314" id="Iok-50-JqM"/>
-                                                        <constraint firstAttribute="width" constant="414" id="uSg-yk-1YP"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a sample caption :)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMT-sp-06T">
-                                                    <rect key="frame" x="8" y="323" width="197.5" height="28"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="This is a sample caption :)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMT-sp-06T">
+                                                    <rect key="frame" x="8" y="325.5" width="197.5" height="25.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timestamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LiG-jO-087">
-                                                    <rect key="frame" x="346" y="323" width="60" height="14.5"/>
+                                                    <rect key="frame" x="346" y="325.5" width="60" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UMR-tP-Mhz">
+                                                    <rect key="frame" x="8" y="8" width="79" height="13.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LFl-8t-Ha3" customClass="PFImageView">
+                                                    <rect key="frame" x="8" y="36.5" width="398" height="288"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="398" id="biL-qM-vR7"/>
+                                                        <constraint firstAttribute="height" constant="288" id="y3V-nc-WTP"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="EMT-sp-06T" firstAttribute="bottom" secondItem="1sr-Go-cmf" secondAttribute="bottomMargin" constant="1" id="60P-4j-bYy"/>
-                                                <constraint firstAttribute="trailing" secondItem="LFl-8t-Ha3" secondAttribute="trailing" id="Asb-0O-3iy"/>
+                                                <constraint firstItem="UMR-tP-Mhz" firstAttribute="leading" secondItem="LFl-8t-Ha3" secondAttribute="leading" id="9NS-pH-XzD"/>
                                                 <constraint firstItem="LiG-jO-087" firstAttribute="top" secondItem="LFl-8t-Ha3" secondAttribute="bottom" constant="1" id="B2Y-JG-cNV"/>
-                                                <constraint firstAttribute="trailing" secondItem="LiG-jO-087" secondAttribute="trailing" constant="8" id="OmX-ts-BuP"/>
+                                                <constraint firstItem="EMT-sp-06T" firstAttribute="leading" secondItem="LFl-8t-Ha3" secondAttribute="leading" id="CVT-A8-RAr"/>
                                                 <constraint firstItem="LiG-jO-087" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EMT-sp-06T" secondAttribute="trailing" constant="2" id="XQ2-Ph-nEb"/>
-                                                <constraint firstItem="LFl-8t-Ha3" firstAttribute="top" secondItem="1sr-Go-cmf" secondAttribute="top" constant="8" id="hkg-ct-Dqg"/>
-                                                <constraint firstItem="EMT-sp-06T" firstAttribute="leading" secondItem="1sr-Go-cmf" secondAttribute="leading" constant="8" id="mNh-TG-fZX"/>
-                                                <constraint firstItem="LFl-8t-Ha3" firstAttribute="leading" secondItem="1sr-Go-cmf" secondAttribute="leading" id="meg-Vd-Xls"/>
+                                                <constraint firstItem="LFl-8t-Ha3" firstAttribute="trailing" secondItem="LiG-jO-087" secondAttribute="trailing" id="ZzF-9k-owh"/>
+                                                <constraint firstItem="EMT-sp-06T" firstAttribute="leading" secondItem="1sr-Go-cmf" secondAttribute="leading" constant="8" id="cQf-Sc-nQM"/>
+                                                <constraint firstItem="LFl-8t-Ha3" firstAttribute="top" secondItem="UMR-tP-Mhz" secondAttribute="bottom" constant="15" id="dh8-GM-QG0"/>
+                                                <constraint firstItem="UMR-tP-Mhz" firstAttribute="top" secondItem="1sr-Go-cmf" secondAttribute="top" constant="8" id="hBa-zM-2YW"/>
+                                                <constraint firstAttribute="trailing" secondItem="LFl-8t-Ha3" secondAttribute="trailing" constant="8" id="kfV-Df-Gl8"/>
+                                                <constraint firstItem="LFl-8t-Ha3" firstAttribute="centerY" secondItem="1sr-Go-cmf" secondAttribute="centerY" id="pET-Ps-qUs"/>
                                                 <constraint firstItem="EMT-sp-06T" firstAttribute="top" secondItem="LFl-8t-Ha3" secondAttribute="bottom" constant="1" id="xhZ-c1-r8f"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -159,6 +168,7 @@
                                             <outlet property="postCaption" destination="EMT-sp-06T" id="vju-gO-gLo"/>
                                             <outlet property="postImage" destination="LFl-8t-Ha3" id="ho1-ag-4u8"/>
                                             <outlet property="timestamp" destination="LiG-jO-087" id="JiR-hO-fG5"/>
+                                            <outlet property="usernameLabel" destination="UMR-tP-Mhz" id="8h8-dT-4vg"/>
                                             <segue destination="quk-nN-b1d" kind="show" identifier="detailsSegue" id="dOE-Cu-ewQ"/>
                                         </connections>
                                     </tableViewCell>
