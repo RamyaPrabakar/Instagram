@@ -51,7 +51,8 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     query.limit = 20;
     [query orderByDescending:@"createdAt"];
-
+    [query includeKey:@"author"];
+    
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
@@ -70,9 +71,19 @@
     Post *currPost = self.arrayOfPosts[indexPath.row];
     cell.postCaption.text = currPost.caption;
     
+    PFUser *userOfPost = currPost.author;
+    cell.profileImage.file = userOfPost[@"profilePicture"];
+    [cell.profileImage loadInBackground];
+    
+    cell.profileImage.layer.cornerRadius = 25;
+    cell.profileImage.layer.masksToBounds = YES;
+    
     cell.postImage.file = currPost[@"image"];
     [cell.postImage loadInBackground];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    PFUser *user = currPost[@"author"];
+    cell.usernameLabel.text = user.username;
     
     NSDate *createdAt = currPost.createdAt;
     
