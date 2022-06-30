@@ -51,6 +51,7 @@ Here's a walkthrough of implemented user stories:
 
 User Persistence:
 
+<img src='UserPersistance_AdobeExpress.gif' title='Video Walkthrough' width='800' height='600' alt='Video Walkthrough'/>
 
 ## Credits
 
