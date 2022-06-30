@@ -47,7 +47,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 Here's a walkthrough of implemented user stories:
 (Link for better quality - https://imgur.com/a/JgxgBwT.gif)
 
-<img src='RequiredFeaturesFinal_AdobeExpress.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='RequiredFeaturesFinal_AdobeExpress.gif' title='Video Walkthrough' width='200' height='400' alt='Video Walkthrough' />
 
 ## Credits
 
