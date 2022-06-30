@@ -13,7 +13,8 @@
 @interface ProfileViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet PFImageView *profilePicture;
 @property (weak, nonatomic) IBOutlet UILabel *username;
-@property (nonatomic, strong) NSArray *arrayOfPosts;
+// @property (nonatomic, strong) NSArray *arrayOfPosts;
+@property (nonatomic, strong) NSArray *arrayForProfile;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -94,12 +95,14 @@
     query.limit = 20;
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"author"];
+    PFUser *currUser = [PFUser currentUser];
+    [query whereKey:@"author" equalTo:currUser];
     
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
             // do something with the array of object returned by the call
-            self.arrayOfPosts = posts;
+            self.arrayForProfile = posts;
             [self.tableView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);
@@ -109,7 +112,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
-    Post *currPost = self.arrayOfPosts[indexPath.row];
+    Post *currPost = self.arrayForProfile[indexPath.row];
     cell.postCaption.text = currPost.caption;
     
     cell.postImage.file = currPost[@"image"];
@@ -137,7 +140,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.arrayOfPosts.count;
+    return self.arrayForProfile.count;
 }
 
 /*
